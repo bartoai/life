@@ -116,29 +116,18 @@
         }
 
         .social-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff41;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #00ff41;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 14px;
-            font-weight: bold;
+            display: block;
             transition: all 0.3s ease;
-            text-shadow: 0 0 5px #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
         }
 
         .social-btn:hover {
-            background: rgba(0, 255, 65, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.4);
-            text-shadow: 0 0 10px #00ff41;
+            transform: scale(1.1);
+        }
+
+        .social-btn img {
+            display: block;
+            max-width: none;
+            height: auto;
         }
 
         /* Mobile responsiveness */
@@ -153,12 +142,6 @@
                 bottom: 30px;
                 right: 30px;
                 gap: 15px;
-            }
-
-            .social-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 12px;
             }
         }
 
@@ -187,10 +170,10 @@
 
     <div class="social-buttons">
         <a href="https://github.com/yourusername" target="_blank" class="social-btn" title="GitHub">
-            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae521db414e94c98a20d55_689178ebf786d570b0c29520_tw%20(1)%20(1).png" alt="GitHub" style="width: 24px; height: 24px;">
+            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae521db414e94c98a20d55_689178ebf786d570b0c29520_tw%20(1)%20(1).png" alt="GitHub">
         </a>
         <a href="https://twitter.com/yourusername" target="_blank" class="social-btn" title="Twitter">
-            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68a663251731174a3dc255f1_689178ebf786d570b0c29520_tw%20(1).png" alt="Twitter" style="width: 24px; height: 24px;">
+            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68a663251731174a3dc255f1_689178ebf786d570b0c29520_tw%20(1).png" alt="Twitter">
         </a>
     </div>
 </body>
