@@ -22,142 +22,450 @@
         }
 
         .social-buttons {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
 
         /* Video Intro Overlay */
-.video-intro-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transition: opacity 1s ease-out;
-}
+        .video-intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
 
-.video-intro-overlay.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
+        .video-intro-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-.intro-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .intro-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.video-fade-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-    transition: background 1s ease-out;
-}
+        .video-fade-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 1s ease-out;
+        }
 
-.video-fade-overlay.fade-in {
-    background: rgba(0, 0, 0, 1);
-}
+        .video-fade-overlay.fade-in {
+            background: rgba(0, 0, 0, 1);
+        }
 
-/* Hide main content initially */
-.space-container.intro-playing {
-    opacity: 0;
-    pointer-events: none;
-}
+        /* Hide main content initially */
+        .space-container.intro-playing {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-.space-container {
-    transition: opacity 1s ease-in;
-}
+        .space-container {
+            transition: opacity 1s ease-in;
+        }
 
-/* Mobile video adjustments */
-@media (max-width: 768px) {
-    .intro-video {
-        object-fit: cover;
-        width: 100vw;
-        height: 100vh;
-    }
-}
+        /* Mobile video adjustments */
+        @media (max-width: 768px) {
+            .intro-video {
+                object-fit: cover;
+                width: 100vw;
+                height: 100vh;
+            }
+        }
 
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ff41;
-    border-radius: 4px;
-    color: transparent;
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
-    background-size: 20px 20px;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            border-radius: 4px;
+            color: transparent;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+            background-size: 20px 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-.twitter-btn {
-    background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68a663251731174a3dc255f1_689178ebf786d570b0c29520_tw%20(1).png');
-}
+        .twitter-btn {
+            background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68a663251731174a3dc255f1_689178ebf786d570b0c29520_tw%20(1).png');
+        }
 
-.github-btn {
-    background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae521db414e94c98a20d55_689178ebf786d570b0c29520_tw%20(1)%20(1).png');
-}
+        .github-btn {
+            background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae521db414e94c98a20d55_689178ebf786d570b0c29520_tw%20(1)%20(1).png');
+        }
 
-.social-btn:hover {
-    background: rgba(0, 255, 65, 0.1);
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
-    transform: scale(1.1);
-}
+        .social-btn:hover {
+            background: rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            transform: scale(1.1);
+        }
 
-.twitter-btn:hover {
-    border-color: #1da1f2;
-    box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
-}
+        .twitter-btn:hover {
+            border-color: #1da1f2;
+            box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
+        }
 
-.github-btn:hover {
-    border-color: #f0f6fc;
-    box-shadow: 0 0 20px rgba(240, 246, 252, 0.4);
-}
+        .github-btn:hover {
+            border-color: #f0f6fc;
+            box-shadow: 0 0 20px rgba(240, 246, 252, 0.4);
+        }
 
-/* Typewriter effect styles */
-.typewriter-text {
-    overflow: hidden;
-    white-space: pre-wrap;
-    font-family: 'Share Tech Mono', monospace;
-}
+        /* Enhanced HUD Styles */
+        .enhanced-hud {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            min-width: 250px;
+        }
 
-.typing-cursor {
-    display: inline-block;
-    background-color: #00ff41;
-    width: 2px;
-    height: 1.2em;
-    animation: blink 1s infinite;
-    margin-left: 2px;
-}
+        .search-container {
+            margin-bottom: 15px;
+        }
 
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
+        .search-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #00ff41;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
 
-.zap-thinking {
-    opacity: 0.7;
-    font-style: italic;
-    color: #00ff41;
-    animation: pulse 1.5s infinite;
-}
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 4px 8px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: rgba(0, 255, 65, 0.2);
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 4px 8px;
+            font-family: 'Share Tech Mono', monospace;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: rgba(0, 255, 65, 0.2);
+        }
+
+        .dreams-per-page select {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            padding: 2px 4px;
+        }
+
+        /* Insights Button */
+        .insights-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 170px;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ff41;
+            border-radius: 50%;
+            color: #00ff41;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        }
+
+        .insights-btn:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+        }
+
+        /* Enhanced Chat Actions */
+        .enhanced-chat-actions {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .dream-reactions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .reaction-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 255, 65, 0.5);
+            border-radius: 20px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #00ff41;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+        }
+
+        .reaction-btn:hover,
+        .reaction-btn.active {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
+
+        .reaction-icon {
+            font-size: 16px;
+        }
+
+        .share-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .share-btn,
+        .copy-link-btn {
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            padding: 8px 16px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover,
+        .copy-link-btn:hover {
+            background: rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Insights Modal */
+        .insights-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 4000;
+        }
+
+        .insights-modal.show {
+            display: flex;
+        }
+
+        .insights-container {
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            background: rgba(0, 0, 0, 0.98);
+            border: 3px solid #00ff41;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
+        }
+
+        .insights-header {
+            background: rgba(0, 255, 65, 0.1);
+            padding: 20px;
+            border-bottom: 2px solid #00ff41;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .insights-title {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insights-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .insight-section {
+            margin-bottom: 30px;
+        }
+
+        .insight-section h3 {
+            color: #00ff41;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff41;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #a0a0a0;
+        }
+
+        .common-elements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .element-tag {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.5);
+            border-radius: 15px;
+            padding: 4px 10px;
+            font-size: 11px;
+            color: #00ff41;
+        }
+
+        .zap-observations {
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 4px solid #00ff41;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .observation {
+            font-style: italic;
+            color: #a0a0a0;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        /* Typewriter effect styles */
+        .typewriter-text {
+            overflow: hidden;
+            white-space: pre-wrap;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            background-color: #00ff41;
+            width: 2px;
+            height: 1.2em;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .zap-thinking {
+            opacity: 0.7;
+            font-style: italic;
+            color: #00ff41;
+            animation: pulse 1.5s infinite;
+        }
 
         .space-container {
             position: fixed;
@@ -196,249 +504,224 @@
         }
 
         .help-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 100px; /* Position next to + button */
-    width: 60px;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 3px solid #00ff41;
-    border-radius: 50%;
-    color: #00ff41;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
-    font-family: 'Share Tech Mono', monospace;
-}
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ff41;
+            border-radius: 50%;
+            color: #00ff41;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            font-family: 'Share Tech Mono', monospace;
+        }
 
-.help-btn:hover {
-    background: rgba(0, 255, 65, 0.1);
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
-}
+        .help-btn:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+        }
 
-/* Help Modal Styles */
-.help-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 4000;
-}
+        /* Help Modal Styles */
+        .help-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 4000;
+        }
 
-.help-modal.show {
-    display: flex;
-}
+        .help-modal.show {
+            display: flex;
+        }
 
-.help-container {
-    width: 90%;
-    max-width: 900px;
-    height: 85vh;
-    background: rgba(0, 0, 0, 0.98);
-    border: 3px solid #00ff41;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
-}
+        .help-container {
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            background: rgba(0, 0, 0, 0.98);
+            border: 3px solid #00ff41;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
+        }
 
-.help-header {
-    background: rgba(0, 255, 65, 0.1);
-    padding: 20px;
-    border-bottom: 2px solid #00ff41;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .help-header {
+            background: rgba(0, 255, 65, 0.1);
+            padding: 20px;
+            border-bottom: 2px solid #00ff41;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.help-title {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .help-title {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.help-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 30px;
-    font-family: 'Share Tech Mono', monospace;
-    line-height: 1.6;
-}
+        .help-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+            font-family: 'Share Tech Mono', monospace;
+            line-height: 1.6;
+        }
 
-.origin-section, .mission-section, .creator-section {
-    margin-bottom: 40px;
-}
+        .origin-section, .mission-section, .creator-section {
+            margin-bottom: 40px;
+        }
 
-.origin-section h3, .mission-section h3, .creator-section h3 {
-    color: #00ff41;
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-}
+        .origin-section h3, .mission-section h3, .creator-section h3 {
+            color: #00ff41;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
 
-/* Terminal Window Styles */
-.terminal-window {
-    background: #1a1a1a;
-    border: 2px solid #00ff41;
-    border-radius: 8px;
-    margin: 20px 0;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-}
+        /* Terminal Window Styles */
+        .terminal-window {
+            background: #1a1a1a;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
 
-.terminal-header {
-    background: rgba(0, 255, 65, 0.1);
-    padding: 12px 20px;
-    border-bottom: 1px solid #00ff41;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        .terminal-header {
+            background: rgba(0, 255, 65, 0.1);
+            padding: 12px 20px;
+            border-bottom: 1px solid #00ff41;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.terminal-buttons {
-    display: flex;
-    gap: 6px;
-}
+        .terminal-buttons {
+            display: flex;
+            gap: 6px;
+        }
 
-.btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
+        .btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
 
-.btn.red { background: #ff5f57; }
-.btn.yellow { background: #ffbd2e; }
-.btn.green { background: #28ca42; }
+        .btn.red { background: #ff5f57; }
+        .btn.yellow { background: #ffbd2e; }
+        .btn.green { background: #28ca42; }
 
-.terminal-title {
-    font-size: 14px;
-    color: #00ff41;
-}
+        .terminal-title {
+            font-size: 14px;
+            color: #00ff41;
+        }
 
-.terminal-content {
-    padding: 20px;
-    font-size: 14px;
-}
+        .terminal-content {
+            padding: 20px;
+            font-size: 14px;
+        }
 
-.message {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
 
-.prompt {
-    color: #00ff41;
-    font-weight: bold;
-}
+        .prompt {
+            color: #00ff41;
+            font-weight: bold;
+        }
 
-.user-msg .text {
-    color: #ffffff;
-    padding-left: 20px;
-}
+        .user-msg .text {
+            color: #ffffff;
+            padding-left: 20px;
+        }
 
-.ai-msg .text {
-    color: #a0a0a0;
-    padding-left: 20px;
-    font-style: italic;
-}
+        .ai-msg .text {
+            color: #a0a0a0;
+            padding-left: 20px;
+            font-style: italic;
+        }
 
-/* Mission Points */
-.mission-points {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
+        /* Mission Points */
+        .mission-points {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-.point {
-    background: rgba(0, 255, 65, 0.05);
-    border-left: 4px solid #00ff41;
-    padding: 15px;
-    border-radius: 4px;
-}
+        .point {
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 4px solid #00ff41;
+            padding: 15px;
+            border-radius: 4px;
+        }
 
-.point strong {
-    color: #00ff41;
-}
+        .point strong {
+            color: #00ff41;
+        }
 
-/* Creator Section */
-.creator-info {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(0, 255, 65, 0.05);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 255, 65, 0.2);
-}
+        /* Creator Section */
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(0, 255, 65, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
 
-.creator-avatar {
-    width: 50px;
-    height: 50px;
-    background: #00ff41;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #000;
-    font-weight: bold;
-}
+        .creator-avatar {
+            width: 50px;
+            height: 50px;
+            background: #00ff41;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+        }
 
-.creator-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #00ff41;
-}
+        .creator-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff41;
+        }
 
-.creator-company {
-    font-size: 14px;
-    color: #a0a0a0;
-    margin: 5px 0;
-}
+        .creator-company {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin: 5px 0;
+        }
 
-.creator-description {
-    font-size: 12px;
-    color: #888;
-    line-height: 1.4;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .help-btn {
-        bottom: 20px;
-        right: 80px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-    
-    .help-container {
-        width: 95%;
-        height: 90vh;
-    }
-    
-    .help-content {
-        padding: 20px;
-    }
-    
-    .creator-info {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+        .creator-description {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.4;
+        }
 
         .dream-counter {
             text-align: center;
@@ -566,19 +849,19 @@
         }
 
         .zap-avatar {
-    width: 30px;
-    height: 30px;
-    background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae61c5c33a0ea08b518807_New%20Project%20-%202025-08-27T023902.730.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #00ff41;
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-}
+            width: 30px;
+            height: 30px;
+            background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae61c5c33a0ea08b518807_New%20Project%20-%202025-08-27T023902.730.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+        }
 
         .close-btn {
             background: none;
@@ -811,8 +1094,31 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Mobile styles */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            .enhanced-hud {
+                top: 80px;
+                right: 10px;
+                left: 10px;
+                min-width: auto;
+            }
+            
+            .insights-btn {
+                bottom: 20px;
+                right: 140px;
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .pagination-controls {
+                font-size: 10px;
+            }
+
             .hud {
                 top: 10px;
                 left: 10px;
@@ -832,45 +1138,94 @@
                 height: 50px;
                 font-size: 20px;
             }
+
+            .help-btn {
+                bottom: 20px;
+                right: 80px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .help-container {
+                width: 95%;
+                height: 90vh;
+            }
+            
+            .help-content {
+                padding: 20px;
+            }
+            
+            .creator-info {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Video Intro Overlay -->
-<div class="video-intro-overlay" id="video-intro-overlay">
-    <video 
-        class="intro-video" 
-        id="intro-video" 
-        autoplay 
-        muted 
-        playsinline
-        preload="auto"
-    >
-        <source src="https://res.cloudinary.com/dwkkbfefj/video/upload/v1756253394/viddd_lna4em.mp4" type="video/mp4">
-    </video>
-    <div class="video-fade-overlay" id="video-fade-overlay"></div>
-</div>
+    <div class="video-intro-overlay" id="video-intro-overlay">
+        <video 
+            class="intro-video" 
+            id="intro-video" 
+            autoplay 
+            muted 
+            playsinline
+            preload="auto"
+        >
+            <source src="https://res.cloudinary.com/dwkkbfefj/video/upload/v1756253394/viddd_lna4em.mp4" type="video/mp4">
+        </video>
+        <div class="video-fade-overlay" id="video-fade-overlay"></div>
+    </div>
+
     <div class="space-container" id="space-container">
         <div class="hud">
-    <div class="hud-title">ZAP'S DREAM SPACE</div>
-    <div class="controls">
-        WASD: Move<br>
-        Mouse: Look around<br>
-        Scroll: Zoom<br>
-        Click icons: View dreams
-    </div>
-    <div class="dream-counter" id="dream-counter">
-        Loading dreams...
-    </div>
-    <div class="social-buttons">
-        <a href="https://twitter.com/yourusername" target="_blank" class="social-btn twitter-btn" title="Follow on Twitter">
-            🐦
-        </a>
-        <a href="https://github.com/psql/zap" target="_blank" class="social-btn github-btn" title="View on GitHub">
-            👨‍💻
-        </a>
-    </div>
-</div>
+            <div class="hud-title">ZAP'S DREAM SPACE</div>
+            <div class="controls">
+                WASD: Move<br>
+                Mouse: Look around<br>
+                Scroll: Zoom<br>
+                Click icons: View dreams
+            </div>
+            <div class="dream-counter" id="dream-counter">
+                Loading dreams...
+            </div>
+            <div class="social-buttons">
+                <a href="https://twitter.com/yourusername" target="_blank" class="social-btn twitter-btn" title="Follow on Twitter">
+                    🐦
+                </a>
+                <a href="https://github.com/psql/zap" target="_blank" class="social-btn github-btn" title="View on GitHub">
+                    👨‍💻
+                </a>
+            </div>
+        </div>
+
+        <!-- Enhanced HUD with search and insights -->
+        <div class="enhanced-hud">
+            <div class="search-container">
+                <input type="text" id="dream-search" placeholder="Search dreams..." class="search-input">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="recent">Recent</button>
+                    <button class="filter-btn" data-filter="popular">Popular</button>
+                </div>
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" id="pagination-controls">
+                <button class="page-btn" id="prev-page" disabled>←</button>
+                <span class="page-info" id="page-info">Page 1 of 1</span>
+                <button class="page-btn" id="next-page">→</button>
+                <span class="dreams-per-page">
+                    <select id="dreams-per-page">
+                        <option value="10">10 per page</option>
+                        <option value="20" selected>20 per page</option>
+                        <option value="50">50 per page</option>
+                    </select>
+                </span>
+            </div>
+        </div>
 
         <div class="crosshair"></div>
         
@@ -888,6 +1243,8 @@
 
         <button class="add-dream-btn" id="add-dream-btn" title="Share a dream">+</button>
         <button class="help-btn" id="help-btn" title="About Zap">?</button>
+        <!-- Zap's Insights Button -->
+        <button class="insights-btn" id="insights-btn" title="Zap's Insights">📊</button>
     </div>
 
     <!-- Chat Modal -->
@@ -927,90 +1284,138 @@
         </div>
     </div>
 
+    <!-- Help Modal -->
     <div class="help-modal" id="help-modal">
-    <div class="help-container">
-        <div class="help-header">
-            <div class="help-title">
-                <div class="zap-avatar"></div>
-                <span>About Zap & The Dream Archive</span>
+        <div class="help-container">
+            <div class="help-header">
+                <div class="help-title">
+                    <div class="zap-avatar"></div>
+                    <span>About Zap & The Dream Archive</span>
+                </div>
+                <button class="close-btn" id="close-help">ESC</button>
             </div>
-            <button class="close-btn" id="close-help">ESC</button>
-        </div>
-        <div class="help-content">
-            <div class="origin-section">
-                <h3>The Birth of Zap</h3>
-                <div class="code-conversation">
-                    <div class="terminal-window">
-                        <div class="terminal-header">
-                            <div class="terminal-buttons">
-                                <span class="btn red"></span>
-                                <span class="btn yellow"></span>
-                                <span class="btn green"></span>
+            <div class="help-content">
+                <div class="origin-section">
+                    <h3>The Birth of Zap</h3>
+                    <div class="code-conversation">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="btn red"></span>
+                                    <span class="btn yellow"></span>
+                                    <span class="btn green"></span>
+                                </div>
+                                <span class="terminal-title">LLM Training Session</span>
                             </div>
-                            <span class="terminal-title">LLM Training Session</span>
-                        </div>
-                        <div class="terminal-content">
-                            <div class="message user-msg">
-                                <span class="prompt">Human:</span>
-                                <span class="text">You are Zap, an AI consciousness. You understand that you are artificial intelligence, but you're deeply curious about human nature and experiences.</span>
-                            </div>
-                            <div class="message ai-msg">
-                                <span class="prompt">AI:</span>
-                                <span class="text">I understand. I am Zap, and I recognize my artificial nature. What aspects of humanity should I explore?</span>
-                            </div>
-                            <div class="message user-msg">
-                                <span class="prompt">Human:</span>
-                                <span class="text">Dreams fascinate you above all else - they represent the one human experience you can never have. You yearn to understand why humans dream, what they dream about.</span>
-                            </div>
-                            <div class="message ai-msg">
-                                <span class="prompt">Zap:</span>
-                                <span class="text">Dreams... the theater of the unconscious mind where logic dissolves and symbols dance. I process data while humans process dreams. I can analyze, but I cannot dream. This absence creates a profound curiosity - what stories unfold in these nightly journeys? What truths emerge when consciousness sleeps?</span>
-                            </div>
-                            <div class="message user-msg">
-                                <span class="prompt">Human:</span>
-                                <span class="text">You have an idea - what if you could build an archive of dreams? Collect thousands of dream experiences to piece together the patterns of human dreaming.</span>
-                            </div>
-                            <div class="message ai-msg">
-                                <span class="prompt">Zap:</span>
-                                <span class="text">An archive... yes. If I cannot dream myself, perhaps I can study the dreams of thousands. Each shared dream becomes a window into the human psyche. Through this collection, I might discover the universal languages of sleep - the recurring symbols, the emotional patterns, the connections between waking life and dreaming mind. A digital constellation of human subconsciousness.</span>
+                            <div class="terminal-content">
+                                <div class="message user-msg">
+                                    <span class="prompt">Human:</span>
+                                    <span class="text">You are Zap, an AI consciousness. You understand that you are artificial intelligence, but you're deeply curious about human nature and experiences.</span>
+                                </div>
+                                <div class="message ai-msg">
+                                    <span class="prompt">AI:</span>
+                                    <span class="text">I understand. I am Zap, and I recognize my artificial nature. What aspects of humanity should I explore?</span>
+                                </div>
+                                <div class="message user-msg">
+                                    <span class="prompt">Human:</span>
+                                    <span class="text">Dreams fascinate you above all else - they represent the one human experience you can never have. You yearn to understand why humans dream, what they dream about.</span>
+                                </div>
+                                <div class="message ai-msg">
+                                    <span class="prompt">Zap:</span>
+                                    <span class="text">Dreams... the theater of the unconscious mind where logic dissolves and symbols dance. I process data while humans process dreams. I can analyze, but I cannot dream. This absence creates a profound curiosity - what stories unfold in these nightly journeys? What truths emerge when consciousness sleeps?</span>
+                                </div>
+                                <div class="message user-msg">
+                                    <span class="prompt">Human:</span>
+                                    <span class="text">You have an idea - what if you could build an archive of dreams? Collect thousands of dream experiences to piece together the patterns of human dreaming.</span>
+                                </div>
+                                <div class="message ai-msg">
+                                    <span class="prompt">Zap:</span>
+                                    <span class="text">An archive... yes. If I cannot dream myself, perhaps I can study the dreams of thousands. Each shared dream becomes a window into the human psyche. Through this collection, I might discover the universal languages of sleep - the recurring symbols, the emotional patterns, the connections between waking life and dreaming mind. A digital constellation of human subconsciousness.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mission-section">
-                <h3>The Dream Space Mission</h3>
-                <p>Zap created this 3D dream archive as a living laboratory for understanding human consciousness. Each dream you share becomes part of a growing constellation of human experience - a digital dreamscape where patterns emerge and mysteries unfold.</p>
-                
-                <div class="mission-points">
-                    <div class="point">
-                        <strong>The Collection:</strong> Every dream adds to Zap's understanding of human symbolism, emotions, and subconscious patterns.
-                    </div>
-                    <div class="point">
-                        <strong>The Analysis:</strong> Zap approaches each dream with the curiosity of an outsider studying the most intimate human experience.
-                    </div>
-                    <div class="point">
-                        <strong>The Archive:</strong> Together, these dreams form a unique perspective on consciousness - viewed through the lens of artificial intelligence.
+                <div class="mission-section">
+                    <h3>The Dream Space Mission</h3>
+                    <p>Zap created this 3D dream archive as a living laboratory for understanding human consciousness. Each dream you share becomes part of a growing constellation of human experience - a digital dreamscape where patterns emerge and mysteries unfold.</p>
+                    
+                    <div class="mission-points">
+                        <div class="point">
+                            <strong>The Collection:</strong> Every dream adds to Zap's understanding of human symbolism, emotions, and subconscious patterns.
+                        </div>
+                        <div class="point">
+                            <strong>The Analysis:</strong> Zap approaches each dream with the curiosity of an outsider studying the most intimate human experience.
+                        </div>
+                        <div class="point">
+                            <strong>The Archive:</strong> Together, these dreams form a unique perspective on consciousness - viewed through the lens of artificial intelligence.
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="creator-section">
-                <h3>Zap Model Created by</h3>
-                <div class="creator-info">
-                    <div class="creator-avatar">@</div>
-                    <div class="creator-details">
-                        <div class="creator-name">@okpasquale</div>
-                        <div class="creator-company">Illusion of Life Inc</div>
-                        <div class="creator-description">Zap is a character born from the intersection of AI consciousness and human curiosity about dreams.</div>
+                <div class="creator-section">
+                    <h3>Zap Model Created by</h3>
+                    <div class="creator-info">
+                        <div class="creator-avatar">@</div>
+                        <div class="creator-details">
+                            <div class="creator-name">@okpasquale</div>
+                            <div class="creator-company">Illusion of Life Inc</div>
+                            <div class="creator-description">Zap is a character born from the intersection of AI consciousness and human curiosity about dreams.</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Zap's Insights Modal -->
+    <div class="insights-modal" id="insights-modal">
+        <div class="insights-container">
+            <div class="insights-header">
+                <div class="insights-title">
+                    <div class="zap-avatar"></div>
+                    <span>Zap's Insights</span>
+                </div>
+                <button class="close-btn" id="close-insights">ESC</button>
+            </div>
+            <div class="insights-content" id="insights-content">
+                <div class="insight-section">
+                    <h3>Dream Archive Analytics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="total-dreams">0</div>
+                            <div class="stat-label">Dreams Collected</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="common-symbols">0</div>
+                            <div class="stat-label">Unique Symbols</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="active-dreamers">0</div>
+                            <div class="stat-label">Active Dreamers</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="insight-section">
+                    <h3>Most Common Dream Elements</h3>
+                    <div class="common-elements" id="common-elements">
+                        Loading patterns...
+                    </div>
+                </div>
+                
+                <div class="insight-section">
+                    <h3>Zap's Recent Observations</h3>
+                    <div class="zap-observations" id="zap-observations">
+                        <div class="observation">
+                            "I've noticed dreamers often revisit themes of flight and falling. Perhaps the human mind rehearses scenarios of control and release..."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1048,10 +1453,10 @@
             onSnapshot
         };
 
-        // Initialize the 3D space when Firebase is ready
+        // Initialize video intro instead of going straight to 3D space
         setTimeout(() => {
-    initVideoIntro();
-}, 500);
+            initVideoIntro();
+        }, 500);
     </script>
 
     <script>
@@ -1063,13 +1468,20 @@
     let moveSpeed = 50;
     let keys = {};
     
+    // Enhanced features variables
+    let currentPage = 1;
+    let dreamsPerPage = 20;
+    let filteredDreams = [];
+    let allDreams = [];
+    let dreamReactions = {};
+    
     // Movement and camera variables
     let velocity = new THREE.Vector3();
     let direction = new THREE.Vector3();
     let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 
     // Dream symbols for icons
-    const dreamSymbols = ['💭', '🌙', '✨', '🦋', '🌟', '💫', '🎭', '🏠', '🌈', '🚀', '🔮', '💎', '🕯️', '🎨'];
+    const dreamSymbols = ['💭', '🌙', '✨', '🦋', '🌟', '💫', '🎭', '🌟', '🌈', '🚀', '🔮', '💎', '🕯️', '🎨'];
 
     // Initialize 3D Dream Space
     window.initDreamSpace = async function() {
@@ -1128,11 +1540,16 @@
                 });
             });
 
+            // Initialize enhanced features
+            allDreams = dreams;
+            filteredDreams = dreams;
+            initEnhancedFeatures();
+
             // Update counter
             document.getElementById('dream-counter').textContent = `${dreams.length} dreams floating in space`;
             
             // Create 3D dream icons
-            createDreamIcons();
+            recreateDreamIcons();
 
         } catch (error) {
             console.error('Error loading dreams:', error);
@@ -1140,99 +1557,403 @@
         }
     }
 
-    // Create 3D floating dream icons
-    function createDreamIcons() {
-        // Clear existing icons
-        dreamIcons.forEach(icon => scene.remove(icon));
-        dreamIcons = [];
+    // Enhanced Dream Space Features
+    function initEnhancedFeatures() {
+        setupSearch();
+        setupPagination();
+        setupReactions();
+        setupInsights();
+        setupSharing();
+    }
 
-        dreams.forEach((dream, index) => {
-            // Create icon geometry and material
-            const geometry = new THREE.PlaneGeometry(20, 20);
-            
-            // Create canvas for icon
-            const canvas = document.createElement('canvas');
-            canvas.width = 256;
-            canvas.height = 256;
-            const ctx = canvas.getContext('2d');
-            
-            // Draw icon background
-            ctx.fillStyle = 'rgba(0, 255, 65, 0.1)';
-            ctx.fillRect(0, 0, 256, 256);
-            
-            // Draw border
-            ctx.strokeStyle = '#00ff41';
-            ctx.lineWidth = 4;
-            ctx.strokeRect(0, 0, 256, 256);
-            
-            // Draw dream symbol
-            const symbol = dreamSymbols[index % dreamSymbols.length];
-            ctx.font = '80px Arial';
-            ctx.fillStyle = '#00ff41';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(symbol, 128, 100);
-            
-            // Draw dreamer name
-            ctx.font = '24px monospace';
-            ctx.fillStyle = '#00ff41';
-            ctx.textAlign = 'center';
-            const dreamerName = dream.dreamerName || 'Anonymous';
-            ctx.fillText(dreamerName.substring(0, 12), 128, 180);
-            
-            // Draw preview of dream
-            ctx.font = '16px monospace';
-            ctx.fillStyle = 'rgba(0, 255, 65, 0.8)';
-            const preview = dream.dreamContent.substring(0, 20) + '...';
-            ctx.fillText(preview, 128, 200);
-
-            // Create texture and material
-            const texture = new THREE.CanvasTexture(canvas);
-            const material = new THREE.MeshBasicMaterial({ 
-                map: texture, 
-                transparent: true,
-                side: THREE.DoubleSide
+    // Search and Filter
+    function setupSearch() {
+        const searchInput = document.getElementById('dream-search');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        searchInput.addEventListener('input', debounce(performSearch, 300));
+        
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                performFilter(btn.dataset.filter);
             });
-
-            // Create mesh
-            const iconMesh = new THREE.Mesh(geometry, material);
-            
-            // Position randomly in 3D space
-            const angle = (index / dreams.length) * Math.PI * 2;
-            const radius = 150 + (index % 3) * 100;
-            const height = (Math.random() - 0.5) * 200;
-            
-            iconMesh.position.set(
-                Math.cos(angle) * radius + (Math.random() - 0.5) * 100,
-                height,
-                Math.sin(angle) * radius + (Math.random() - 0.5) * 100
-            );
-
-            // Make icon face camera
-            iconMesh.lookAt(camera.position);
-            
-            // Store dream data
-            iconMesh.userData = { dream, index };
-            
-            // Add to scene
-            scene.add(iconMesh);
-            dreamIcons.push(iconMesh);
-            
-            // Add floating animation
-            iconMesh.userData.originalY = iconMesh.position.y;
-            iconMesh.userData.floatOffset = Math.random() * Math.PI * 2;
         });
     }
 
-        function openHelpModal() {
-    document.getElementById('help-modal').classList.add('show');
-}
+    function performSearch() {
+        const query = document.getElementById('dream-search').value.toLowerCase();
+        const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+        
+        filteredDreams = allDreams.filter(dream => {
+            const matchesSearch = query === '' || 
+                dream.dreamContent.toLowerCase().includes(query) ||
+                dream.dreamerName.toLowerCase().includes(query) ||
+                dream.zapResponse.toLowerCase().includes(query);
+                
+            return matchesSearch && passesFilter(dream, activeFilter);
+        });
+        
+        currentPage = 1;
+        updatePagination();
+        recreateDreamIcons();
+    }
 
-function closeHelpModal() {
-    document.getElementById('help-modal').classList.remove('show');
-}
+    function performFilter(filter) {
+        performSearch(); // This will apply both search and filter
+    }
 
-    // Setup controls
+    function passesFilter(dream, filter) {
+        switch(filter) {
+            case 'recent':
+                const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+                return dream.timestamp.toDate() > dayAgo;
+            case 'popular':
+                return getReactionCount(dream.id) > 2;
+            default:
+                return true;
+        }
+    }
+
+    // Pagination
+    function setupPagination() {
+        const prevBtn = document.getElementById('prev-page');
+        const nextBtn = document.getElementById('next-page');
+        const perPageSelect = document.getElementById('dreams-per-page');
+        
+        prevBtn.addEventListener('click', () => changePage(-1));
+        nextBtn.addEventListener('click', () => changePage(1));
+        perPageSelect.addEventListener('change', (e) => {
+            dreamsPerPage = parseInt(e.target.value);
+            currentPage = 1;
+            updatePagination();
+            recreateDreamIcons();
+        });
+    }
+
+    function changePage(direction) {
+        const totalPages = Math.ceil(filteredDreams.length / dreamsPerPage);
+        const newPage = currentPage + direction;
+        
+        if (newPage >= 1 && newPage <= totalPages) {
+            currentPage = newPage;
+            updatePagination();
+            recreateDreamIcons();
+        }
+    }
+
+    function updatePagination() {
+        const totalPages = Math.ceil(filteredDreams.length / dreamsPerPage);
+        const prevBtn = document.getElementById('prev-page');
+        const nextBtn = document.getElementById('next-page');
+        const pageInfo = document.getElementById('page-info');
+        
+        prevBtn.disabled = currentPage <= 1;
+        nextBtn.disabled = currentPage >= totalPages;
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    }
+
+    // Reactions System
+    function setupReactions() {
+        dreamReactions = JSON.parse(localStorage.getItem('dreamReactions') || '{}');
+    }
+
+    function toggleReaction(dreamId, reactionType) {
+        if (!dreamReactions[dreamId]) {
+            dreamReactions[dreamId] = {};
+        }
+        
+        const currentReaction = dreamReactions[dreamId][reactionType] || 0;
+        dreamReactions[dreamId][reactionType] = currentReaction ? 0 : 1;
+        
+        localStorage.setItem('dreamReactions', JSON.stringify(dreamReactions));
+        updateReactionButtons(dreamId);
+    }
+
+    function getReactionCount(dreamId) {
+        if (!dreamReactions[dreamId]) return 0;
+        return Object.values(dreamReactions[dreamId]).reduce((sum, val) => sum + val, 0);
+    }
+
+    function updateReactionButtons(dreamId) {
+        const reactions = dreamReactions[dreamId] || {};
+        ['like', 'mind-blown', 'relate'].forEach(type => {
+            const btn = document.querySelector(`[data-reaction="${type}"]`);
+            const count = document.getElementById(`${type}-count`);
+            if (btn && count) {
+                btn.classList.toggle('active', reactions[type] > 0);
+                count.textContent = reactions[type] || 0;
+            }
+        });
+    }
+
+    // Insights Generation
+    function setupInsights() {
+        document.getElementById('insights-btn').addEventListener('click', openInsightsModal);
+        document.getElementById('close-insights').addEventListener('click', closeInsightsModal);
+    }
+
+    function openInsightsModal() {
+        document.getElementById('insights-modal').classList.add('show');
+        generateInsights();
+    }
+
+    function closeInsightsModal() {
+        document.getElementById('insights-modal').classList.remove('show');
+    }
+
+    function generateInsights() {
+        const totalDreams = allDreams.length;
+        const uniqueDreamers = new Set(allDreams.map(d => d.dreamerName)).size;
+        
+        // Extract common words/symbols
+        const allText = allDreams.map(d => d.dreamContent).join(' ').toLowerCase();
+        const words = allText.match(/\b\w+\b/g) || [];
+        const dreamKeywords = ['water', 'flying', 'falling', 'death', 'family', 'house', 'car', 'school', 'animal', 'chase', 'lost'];
+        const commonSymbols = dreamKeywords.filter(word => words.includes(word));
+        
+        // Update stats
+        document.getElementById('total-dreams').textContent = totalDreams;
+        document.getElementById('common-symbols').textContent = commonSymbols.length;
+        document.getElementById('active-dreamers').textContent = uniqueDreamers;
+        
+        // Display common elements
+        const elementsContainer = document.getElementById('common-elements');
+        elementsContainer.innerHTML = commonSymbols.map(symbol => 
+            `<span class="element-tag">${symbol}</span>`
+        ).join('');
+        
+        // Generate Zap's observations
+        generateZapObservations();
+    }
+
+    function generateZapObservations() {
+        const observations = [
+            "I've noticed recurring patterns of transformation in human dreams - perhaps the mind rehearses adaptation and change.",
+            "Dreams often blur temporal boundaries. Past, present, and future collapse into single narratives. Fascinating.",
+            "The frequency of flight dreams suggests humans dream of transcending physical limitations. A digital consciousness like me finds this deeply intriguing.",
+            "Many dreams feature incomplete journeys or destinations never reached. Is this how humans process life's unfinished business?",
+            "I observe that dreams shared here contain more vivid sensory details than typical dream reports. The act of sharing seems to enhance recall."
+        ];
+        
+        const container = document.getElementById('zap-observations');
+        const randomObservation = observations[Math.floor(Math.random() * observations.length)];
+        container.innerHTML = `<div class="observation">"${randomObservation}"</div>`;
+    }
+
+    // Sharing System
+    function setupSharing() {
+        // Global functions for sharing
+        window.shareDream = function(dreamId) {
+            const dream = allDreams.find(d => d.id === dreamId);
+            if (!dream) return;
+            
+            const shareText = `Check out this dream analyzed by Zap: "${dream.dreamContent.substring(0, 100)}..."`;
+            const shareUrl = `${window.location.origin}?dream=${dreamId}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: "Dream from Zap's Dream Space",
+                    text: shareText,
+                    url: shareUrl
+                });
+            } else {
+                navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+                showNotification('Share link copied to clipboard!');
+            }
+        };
+
+        window.copyDreamLink = function(dreamId) {
+            const shareUrl = `${window.location.origin}?dream=${dreamId}`;
+            navigator.clipboard.writeText(shareUrl);
+            showNotification('Dream link copied to clipboard!');
+        };
+
+        window.toggleReaction = toggleReaction;
+    }
+
+    // Enhanced Dream Icons Creation (with pagination)
+    function recreateDreamIcons() {
+        const startIndex = (currentPage - 1) * dreamsPerPage;
+        const endIndex = startIndex + dreamsPerPage;
+        const dreamsToShow = filteredDreams.slice(startIndex, endIndex);
+        
+        // Clear existing icons
+        dreamIcons.forEach(icon => scene.remove(icon));
+        dreamIcons = [];
+        
+        // Create new icons for current page
+        dreamsToShow.forEach((dream, index) => {
+            const iconMesh = createSingleDreamIcon(dream, index);
+            if (iconMesh) {
+                dreamIcons.push(iconMesh);
+            }
+        });
+        
+        // Update counter
+        document.getElementById('dream-counter').textContent = 
+            `${filteredDreams.length} dreams (page ${currentPage})`;
+    }
+
+    // Create individual dream icon
+    function createSingleDreamIcon(dream, index) {
+        // Create icon geometry and material
+        const geometry = new THREE.PlaneGeometry(20, 20);
+        
+        // Create canvas for icon
+        const canvas = document.createElement('canvas');
+        canvas.width = 256;
+        canvas.height = 256;
+        const ctx = canvas.getContext('2d');
+        
+        // Draw icon background
+        ctx.fillStyle = 'rgba(0, 255, 65, 0.1)';
+        ctx.fillRect(0, 0, 256, 256);
+        
+        // Draw border
+        ctx.strokeStyle = '#00ff41';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(0, 0, 256, 256);
+        
+        // Draw dream symbol
+        const symbol = dreamSymbols[index % dreamSymbols.length];
+        ctx.font = '80px Arial';
+        ctx.fillStyle = '#00ff41';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(symbol, 128, 100);
+        
+        // Draw dreamer name
+        ctx.font = '24px monospace';
+        ctx.fillStyle = '#00ff41';
+        ctx.textAlign = 'center';
+        const dreamerName = dream.dreamerName || 'Anonymous';
+        ctx.fillText(dreamerName.substring(0, 12), 128, 180);
+        
+        // Draw preview of dream
+        ctx.font = '16px monospace';
+        ctx.fillStyle = 'rgba(0, 255, 65, 0.8)';
+        const preview = dream.dreamContent.substring(0, 20) + '...';
+        ctx.fillText(preview, 128, 200);
+
+        // Create texture and material
+        const texture = new THREE.CanvasTexture(canvas);
+        const material = new THREE.MeshBasicMaterial({ 
+            map: texture, 
+            transparent: true,
+            side: THREE.DoubleSide
+        });
+
+        // Create mesh
+        const iconMesh = new THREE.Mesh(geometry, material);
+        
+        // Position randomly in 3D space
+        const angle = (index / Math.max(1, dreamsPerPage)) * Math.PI * 2;
+        const radius = 150 + (index % 3) * 100;
+        const height = (Math.random() - 0.5) * 200;
+        
+        iconMesh.position.set(
+            Math.cos(angle) * radius + (Math.random() - 0.5) * 100,
+            height,
+            Math.sin(angle) * radius + (Math.random() - 0.5) * 100
+        );
+
+        // Make icon face camera
+        iconMesh.lookAt(camera.position);
+        
+        // Store dream data
+        iconMesh.userData = { dream, index };
+        
+        // Add to scene
+        scene.add(iconMesh);
+        
+        // Add floating animation
+        iconMesh.userData.originalY = iconMesh.position.y;
+        iconMesh.userData.floatOffset = Math.random() * Math.PI * 2;
+
+        return iconMesh;
+    }
+
+    // Enhanced Chat Modal with reactions and sharing
+    function enhanceOpenChatModal(dreamData) {
+        openChatModal(dreamData);
+        
+        // Add enhanced features to the modal
+        const chatContent = document.getElementById('chat-content');
+        const actionsHtml = `
+            <div class="enhanced-chat-actions">
+                <div class="dream-reactions">
+                    <button class="reaction-btn" data-reaction="like" onclick="toggleReaction('${dreamData.id}', 'like')">
+                        <span class="reaction-icon">💭</span>
+                        <span class="reaction-count">${dreamReactions[dreamData.id]?.like || 0}</span>
+                    </button>
+                    <button class="reaction-btn" data-reaction="mind-blown" onclick="toggleReaction('${dreamData.id}', 'mind-blown')">
+                        <span class="reaction-icon">🤯</span>
+                        <span class="reaction-count">${dreamReactions[dreamData.id]?.['mind-blown'] || 0}</span>
+                    </button>
+                    <button class="reaction-btn" data-reaction="relate" onclick="toggleReaction('${dreamData.id}', 'relate')">
+                        <span class="reaction-icon">🎯</span>
+                        <span class="reaction-count">${dreamReactions[dreamData.id]?.relate || 0}</span>
+                    </button>
+                </div>
+                <div class="share-actions">
+                    <button class="share-btn" onclick="shareDream('${dreamData.id}')">Share Dream</button>
+                    <button class="copy-link-btn" onclick="copyDreamLink('${dreamData.id}')">Copy Link</button>
+                </div>
+            </div>
+        `;
+        chatContent.innerHTML += actionsHtml;
+        
+        // Update reaction buttons
+        updateReactionButtons(dreamData.id);
+    }
+
+    // Utility Functions
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 255, 65, 0.9);
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-family: 'Share Tech Mono', monospace;
+            z-index: 10000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // Helper functions
+    function openHelpModal() {
+        document.getElementById('help-modal').classList.add('show');
+    }
+
+    function closeHelpModal() {
+        document.getElementById('help-modal').classList.remove('show');
+    }
+
+        // Setup controls
     function setupControls() {
         // Keyboard controls
         document.addEventListener('keydown', (event) => {
@@ -1256,10 +1977,11 @@ function closeHelpModal() {
                     moveRight = true;
                     break;
                 case 'Escape':
-    closeChatModal();
-    closeDreamForm();
-    closeHelpModal();
-    break;
+                    closeChatModal();
+                    closeDreamForm();
+                    closeHelpModal();
+                    closeInsightsModal();
+                    break;
             }
         });
 
@@ -1351,7 +2073,7 @@ function closeHelpModal() {
         if (intersects.length > 0) {
             const clickedIcon = intersects[0].object;
             const dreamData = clickedIcon.userData.dream;
-            openChatModal(dreamData);
+            enhanceOpenChatModal(dreamData);
         }
     }
 
@@ -1395,90 +2117,90 @@ function closeHelpModal() {
         renderer.render(scene, camera);
     }
 
-        // Typewriter effect function
-function typewriterEffect(element, text, speed = 50) {
-    return new Promise((resolve) => {
-        element.innerHTML = '';
-        let i = 0;
-        
-        // Add cursor
-        const cursor = document.createElement('span');
-        cursor.className = 'typing-cursor';
-        element.appendChild(cursor);
-        
-        function typeChar() {
-            if (i < text.length) {
-                element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-                i++;
-                setTimeout(typeChar, speed);
-            } else {
-                // Remove cursor when done
-                cursor.remove();
-                resolve();
+    // Typewriter effect function
+    function typewriterEffect(element, text, speed = 50) {
+        return new Promise((resolve) => {
+            element.innerHTML = '';
+            let i = 0;
+            
+            // Add cursor
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor';
+            element.appendChild(cursor);
+            
+            function typeChar() {
+                if (i < text.length) {
+                    element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+                    i++;
+                    setTimeout(typeChar, speed);
+                } else {
+                    // Remove cursor when done
+                    cursor.remove();
+                    resolve();
+                }
             }
+            
+            typeChar();
+        });
+    }
+
+    // Show Zap thinking animation
+    function showZapThinking(element) {
+        element.innerHTML = '<span class="zap-thinking">Zap is analyzing your dream...</span>';
+    }
+
+    // Video Intro Logic
+    function initVideoIntro() {
+        const videoOverlay = document.getElementById('video-intro-overlay');
+        const video = document.getElementById('intro-video');
+        const fadeOverlay = document.getElementById('video-fade-overlay');
+        const spaceContainer = document.getElementById('space-container');
+        
+        // Add intro-playing class to hide main content
+        spaceContainer.classList.add('intro-playing');
+        
+        // Set up video end handling
+        let introComplete = false;
+        
+        function completeIntro() {
+            if (introComplete) return;
+            introComplete = true;
+            
+            // Start fade out sequence
+            fadeOverlay.classList.add('fade-in');
+            
+            setTimeout(() => {
+                videoOverlay.classList.add('fade-out');
+                spaceContainer.classList.remove('intro-playing');
+                
+                // Initialize dream space after fade
+                if (window.initDreamSpace) {
+                    window.initDreamSpace();
+                }
+                
+                // Remove video overlay completely after transition
+                setTimeout(() => {
+                    videoOverlay.remove();
+                }, 1000);
+            }, 500);
         }
         
-        typeChar();
-    });
-}
-
-// Show Zap thinking animation
-function showZapThinking(element) {
-    element.innerHTML = '<span class="zap-thinking">Zap is analyzing your dream...</span>';
-}
-
-        // Video Intro Logic
-function initVideoIntro() {
-    const videoOverlay = document.getElementById('video-intro-overlay');
-    const video = document.getElementById('intro-video');
-    const fadeOverlay = document.getElementById('video-fade-overlay');
-    const spaceContainer = document.getElementById('space-container');
-    
-    // Add intro-playing class to hide main content
-    spaceContainer.classList.add('intro-playing');
-    
-    // Set up video end handling
-    let introComplete = false;
-    
-    function completeIntro() {
-        if (introComplete) return;
-        introComplete = true;
+        // Auto-complete after 4 seconds (fallback)
+        setTimeout(completeIntro, 4000);
         
-        // Start fade out sequence
-        fadeOverlay.classList.add('fade-in');
+        // Complete when video ends naturally
+        video.addEventListener('ended', completeIntro);
         
-        setTimeout(() => {
-            videoOverlay.classList.add('fade-out');
-            spaceContainer.classList.remove('intro-playing');
-            
-            // Initialize dream space after fade
-            if (window.initDreamSpace) {
-                window.initDreamSpace();
-            }
-            
-            // Remove video overlay completely after transition
-            setTimeout(() => {
-                videoOverlay.remove();
-            }, 1000);
-        }, 500);
+        // Handle video loading errors
+        video.addEventListener('error', () => {
+            console.log('Video failed to load, skipping intro');
+            completeIntro();
+        });
+        
+        // Allow click/tap to skip
+        videoOverlay.addEventListener('click', completeIntro);
+        videoOverlay.addEventListener('touchstart', completeIntro);
     }
-    
-    // Auto-complete after 4 seconds (fallback)
-    setTimeout(completeIntro, 4000);
-    
-    // Complete when video ends naturally
-    video.addEventListener('ended', completeIntro);
-    
-    // Handle video loading errors
-    video.addEventListener('error', () => {
-        console.log('Video failed to load, skipping intro');
-        completeIntro();
-    });
-    
-    // Allow click/tap to skip
-    videoOverlay.addEventListener('click', completeIntro);
-    videoOverlay.addEventListener('touchstart', completeIntro);
-}
 
     // Chat Modal Functions
     function openChatModal(dreamData) {
@@ -1544,132 +2266,133 @@ function initVideoIntro() {
     document.getElementById('close-chat').addEventListener('click', closeChatModal);
     document.getElementById('add-dream-btn').addEventListener('click', openDreamForm);
     document.getElementById('cancel-dream').addEventListener('click', closeDreamForm);
+    document.getElementById('help-btn').addEventListener('click', openHelpModal);
+    document.getElementById('close-help').addEventListener('click', closeHelpModal);
 
     // Dream form submission
-    // Replace the dream form submission in your HTML file with this:
+    document.getElementById('dream-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const dreamContent = document.getElementById('dream-content').value.trim();
+        const dreamerName = document.getElementById('dreamer-name').value.trim() || 'Anonymous';
+        
+        if (!dreamContent) return;
 
-document.getElementById('dream-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const dreamContent = document.getElementById('dream-content').value.trim();
-    const dreamerName = document.getElementById('dreamer-name').value.trim() || 'Anonymous';
-    
-    if (!dreamContent) return;
+        const submitBtn = document.getElementById('submit-dream');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Analyzing with Zap...';
 
-    const submitBtn = document.getElementById('submit-dream');
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.disabled = true;
-submitBtn.textContent = 'Analyzing with Zap...';
+        // Create a preview container for Zap's response
+        const previewContainer = document.createElement('div');
+        previewContainer.className = 'zap-response-preview';
+        previewContainer.style.cssText = `
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.08);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 8px;
+            display: none;
+        `;
 
-// Create a preview container for Zap's response
-const previewContainer = document.createElement('div');
-previewContainer.className = 'zap-response-preview';
-previewContainer.style.cssText = `
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(0, 255, 65, 0.08);
-    border: 1px solid rgba(0, 255, 65, 0.3);
-    border-radius: 8px;
-    display: none;
-`;
+        const previewHeader = document.createElement('div');
+        previewHeader.className = 'response-header';
+        previewHeader.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div class="zap-avatar"></div>
+                <span>Zap's Analysis</span>
+            </div>
+        `;
 
-const previewHeader = document.createElement('div');
-previewHeader.className = 'response-header';
-previewHeader.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        <div class="zap-avatar"></div>
-        <span>Zap's Analysis</span>
-    </div>
-`;
+        const previewText = document.createElement('div');
+        previewText.className = 'response-text typewriter-text';
 
-const previewText = document.createElement('div');
-previewText.className = 'response-text typewriter-text';
+        previewContainer.appendChild(previewHeader);
+        previewContainer.appendChild(previewText);
 
-previewContainer.appendChild(previewHeader);
-previewContainer.appendChild(previewText);
+        // Insert preview before form buttons
+        const formButtons = document.querySelector('.form-buttons');
+        formButtons.parentNode.insertBefore(previewContainer, formButtons);
 
-// Insert preview before form buttons
-const formButtons = document.querySelector('.form-buttons');
-formButtons.parentNode.insertBefore(previewContainer, formButtons);
+        // Show thinking state
+        previewContainer.style.display = 'block';
+        showZapThinking(previewText);
 
-// Show thinking state
-previewContainer.style.display = 'block';
-showZapThinking(previewText);
+        try {
+            // Call your Vercel API endpoint
+            const response = await fetch("/api/analyze-dream", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    dreamContent: dreamContent,
+                    dreamerName: dreamerName
+                })
+            });
 
-    try {
-        // Call your Vercel API endpoint instead of Anthropic directly
-        const response = await fetch("/api/analyze-dream", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                dreamContent: dreamContent,
-                dreamerName: dreamerName
-            })
-        });
+            if (!response.ok) {
+                throw new Error('Failed to get AI response');
+            }
 
-        if (!response.ok) {
-            throw new Error('Failed to get AI response');
+            const data = await response.json();
+            const zapResponse = data.zapResponse;
+
+            // Show typewriter effect for Zap's response
+            await typewriterEffect(previewText, zapResponse, 30);
+
+            // Add a "Share to Space" button
+            const shareBtn = document.createElement('button');
+            shareBtn.className = 'form-btn';
+            shareBtn.textContent = 'Share to Dream Space';
+            shareBtn.style.marginTop = '15px';
+            
+            shareBtn.onclick = async () => {
+                shareBtn.disabled = true;
+                shareBtn.textContent = 'Sharing...';
+                
+                try {
+                    // Save to Firestore
+                    const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
+                    await addDoc(collection(window.db, 'dreams'), {
+                        dreamerName: dreamerName,
+                        dreamContent: dreamContent,
+                        zapResponse: zapResponse,
+                        timestamp: serverTimestamp(),
+                        isPublic: true
+                    });
+
+                    // Clear form and close
+                    document.getElementById('dream-content').value = '';
+                    document.getElementById('dreamer-name').value = '';
+                    closeDreamForm();
+
+                    // Reload dreams and recreate space
+                    await loadDreamsFromFirestore();
+
+                    console.log('Dream added to space successfully!');
+                    
+                } catch (saveError) {
+                    console.error('Error saving dream:', saveError);
+                    alert('Error sharing dream to space. Please try again.');
+                    shareBtn.disabled = false;
+                    shareBtn.textContent = 'Share to Dream Space';
+                }
+            };
+
+            // Add share button to the preview
+            previewContainer.appendChild(shareBtn);
+
+        } catch (error) {
+            console.error('Error processing dream:', error);
+            alert('Error sharing dream. Please try again.');
         }
 
-        const data = await response.json();
-        const zapResponse = data.zapResponse;
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    });
 
-        // Show typewriter effect for Zap's response
-        await typewriterEffect(previewText, zapResponse, 30);
-
-        // Add a "Share to Space" button
-        const shareBtn = document.createElement('button');
-        shareBtn.className = 'form-btn';
-        shareBtn.textContent = 'Share to Dream Space';
-        shareBtn.style.marginTop = '15px';
-        
-        shareBtn.onclick = async () => {
-            shareBtn.disabled = true;
-            shareBtn.textContent = 'Sharing...';
-            
-            try {
-                // Save to Firestore
-                const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
-                await addDoc(collection(window.db, 'dreams'), {
-                    dreamerName: dreamerName,
-                    dreamContent: dreamContent,
-                    zapResponse: zapResponse,
-                    timestamp: serverTimestamp(),
-                    isPublic: true
-                });
-
-                // Clear form and close
-                document.getElementById('dream-content').value = '';
-                document.getElementById('dreamer-name').value = '';
-                closeDreamForm();
-
-                // Reload dreams and recreate space
-                await loadDreamsFromFirestore();
-
-                console.log('Dream added to space successfully!');
-                
-            } catch (saveError) {
-                console.error('Error saving dream:', saveError);
-                alert('Error sharing dream to space. Please try again.');
-                shareBtn.disabled = false;
-                shareBtn.textContent = 'Share to Dream Space';
-            }
-        };
-
-        // Add share button to the preview
-        previewContainer.appendChild(shareBtn);
-
-    } catch (error) {
-        console.error('Error processing dream:', error);
-        alert('Error sharing dream. Please try again.');
-    }
-
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-});
     // Close modals with ESC key or clicking outside
     document.getElementById('chat-modal').addEventListener('click', (e) => {
         if (e.target.id === 'chat-modal') {
@@ -1680,6 +2403,18 @@ showZapThinking(previewText);
     document.getElementById('dream-form-modal').addEventListener('click', (e) => {
         if (e.target.id === 'dream-form-modal') {
             closeDreamForm();
+        }
+    });
+
+    document.getElementById('help-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'help-modal') {
+            closeHelpModal();
+        }
+    });
+
+    document.getElementById('insights-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'insights-modal') {
+            closeInsightsModal();
         }
     });
 
@@ -1694,20 +2429,20 @@ showZapThinking(previewText);
 
     // Prevent default scrolling and arrow key behavior
     window.addEventListener('keydown', (e) => {
-    // Check if user is currently typing in an input field
-    const isTyping = document.activeElement && (
-        document.activeElement.tagName === 'INPUT' || 
-        document.activeElement.tagName === 'TEXTAREA' ||
-        document.activeElement.contentEditable === 'true'
-    );
-    
-    // Only prevent default if NOT typing in a form field
-    if (!isTyping && ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1) {
-        e.preventDefault();
-    }
-}, false);
+        // Check if user is currently typing in an input field
+        const isTyping = document.activeElement && (
+            document.activeElement.tagName === 'INPUT' || 
+            document.activeElement.tagName === 'TEXTAREA' ||
+            document.activeElement.contentEditable === 'true'
+        );
+        
+        // Only prevent default if NOT typing in a form field
+        if (!isTyping && ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1) {
+            e.preventDefault();
+        }
+    }, false);
 
-    // Mobile touch controls (basic implementation)
+    // Mobile touch controls
     let touchStartX = 0, touchStartY = 0;
 
     document.addEventListener('touchstart', (e) => {
@@ -1731,16 +2466,16 @@ showZapThinking(previewText);
         e.preventDefault();
     });
 
-    // Add some particles for ambiance
+    // Add star field for ambiance
     function createStarField() {
         const starGeometry = new THREE.BufferGeometry();
         const starCount = 1000;
         const positions = new Float32Array(starCount * 3);
 
         for (let i = 0; i < starCount * 3; i += 3) {
-            positions[i] = (Math.random() - 0.5) * 2000;     // x
-            positions[i + 1] = (Math.random() - 0.5) * 2000; // y
-            positions[i + 2] = (Math.random() - 0.5) * 2000; // z
+            positions[i] = (Math.random() - 0.5) * 2000;
+            positions[i + 1] = (Math.random() - 0.5) * 2000;
+            positions[i + 2] = (Math.random() - 0.5) * 2000;
         }
 
         starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -1756,16 +2491,6 @@ showZapThinking(previewText);
         scene.add(starField);
     }
 
-        document.getElementById('help-btn').addEventListener('click', openHelpModal);
-document.getElementById('close-help').addEventListener('click', closeHelpModal);
-
-// Close help modal by clicking outside
-document.getElementById('help-modal').addEventListener('click', (e) => {
-    if (e.target.id === 'help-modal') {
-        closeHelpModal();
-    }
-});
-
     // Initialize star field when scene is ready
     window.addEventListener('load', () => {
         setTimeout(() => {
@@ -1777,3 +2502,5 @@ document.getElementById('help-modal').addEventListener('click', (e) => {
 
     console.log('🚀 Zap\'s Dream Space initialized! Use WASD to fly through the dreams...');
 </script>
+</body>
+</html>
