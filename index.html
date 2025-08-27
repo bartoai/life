@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Portal</title>
+    <title>Coming Soon</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -16,8 +14,7 @@
         body, html {
             height: 100%;
             overflow: hidden;
-            font-family: 'Share Tech Mono', monospace;
-            background: #000;
+            font-family: Arial, sans-serif;
         }
 
         .video-container {
@@ -27,33 +24,12 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            transition: opacity 2s ease-out;
-        }
-
-        .video-container.fade-out {
-            opacity: 0;
         }
 
         #background-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .model-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 2s ease-in;
-            background: radial-gradient(circle at center, #001a00 0%, #000000 70%);
-        }
-
-        .model-container.fade-in {
-            opacity: 1;
         }
 
         .overlay {
@@ -67,122 +43,25 @@
             align-items: center;
             justify-content: center;
             z-index: 2;
-            transition: opacity 2s ease-out;
         }
 
-        .overlay.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .matrix-enter {
-            position: relative;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .enter-text {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 48px;
-            font-weight: 400;
-            color: #00ff41;
-            text-transform: uppercase;
+        .coming-soon {
+            color: white;
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
             letter-spacing: 8px;
-            padding: 30px 60px;
-            border: 3px solid #00ff41;
-            background: rgba(0, 0, 0, 0.8);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-shadow: 
-                0 0 5px #00ff41,
-                0 0 10px #00ff41,
-                0 0 15px #00ff41;
-            box-shadow: 
-                0 0 20px rgba(0, 255, 65, 0.3),
-                inset 0 0 20px rgba(0, 255, 65, 0.1);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .enter-text::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .matrix-enter:hover .enter-text {
-            color: #fff;
-            background: rgba(0, 255, 65, 0.1);
-            text-shadow: 
-                0 0 10px #00ff41,
-                0 0 20px #00ff41,
-                0 0 30px #00ff41,
-                0 0 40px #00ff41;
-            box-shadow: 
-                0 0 40px rgba(0, 255, 65, 0.6),
-                inset 0 0 40px rgba(0, 255, 65, 0.2);
-            transform: scale(1.05);
-        }
-
-        .matrix-enter:hover .enter-text::before {
-            left: 100%;
-        }
-
-        .matrix-enter:active .enter-text {
-            transform: scale(0.98);
-        }
-
-        .glitch-effect {
-            position: relative;
-        }
-
-        .glitch-effect::after {
-            content: '[ ENTER ]';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: #00ff41;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            animation: glitch 0.3s infinite;
-        }
-
-        @keyframes glitch {
-            0%, 90%, 100% {
-                opacity: 0;
-                transform: translate(0);
+        @keyframes glow {
+            from { 
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
             }
-            10% {
-                opacity: 1;
-                transform: translate(-2px, 2px);
+            to { 
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
             }
-            20% {
-                opacity: 1;
-                transform: translate(2px, -2px);
-            }
-            30% {
-                opacity: 1;
-                transform: translate(-2px, -2px);
-            }
-            40% {
-                opacity: 1;
-                transform: translate(2px, 2px);
-            }
-        }
-
-        .matrix-enter:hover .glitch-effect::after {
-            animation-play-state: running;
         }
 
         .social-buttons {
@@ -197,127 +76,49 @@
         .social-btn {
             width: 60px;
             height: 60px;
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff41;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #00ff41;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 14px;
+            color: #333;
+            font-size: 24px;
             font-weight: bold;
             transition: all 0.3s ease;
-            text-shadow: 0 0 5px #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-btn:hover {
-            background: rgba(0, 255, 65, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.4);
-            text-shadow: 0 0 10px #00ff41;
-        }
-
-        /* Matrix rain effect background */
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        /* Control Modal - simplified for display only */
-        .control-modal {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            border: 2px solid #00ff41;
-            border-radius: 8px;
-            padding: 15px;
-            font-family: 'Share Tech Mono', monospace;
-            color: #00ff41;
-            z-index: 10;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-            pointer-events: none;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-            min-width: 200px;
-        }
-
-        .control-modal.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .control-modal h3 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
-            text-shadow: 0 0 5px #00ff41;
-        }
-
-        .coordinates-display {
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid #00ff41;
-            border-radius: 4px;
-            padding: 10px;
-            font-size: 11px;
-            line-height: 1.6;
-        }
-
-        .instructions {
-            margin-top: 10px;
-            font-size: 10px;
-            opacity: 0.7;
-            line-height: 1.4;
-        }
-
-        .toggle-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff41;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00ff41;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 10;
-            opacity: 0;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 5px #00ff41;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-        }
-
-        .toggle-controls.show {
-            opacity: 1;
-        }
-
-        .toggle-controls:hover {
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(255, 255, 255, 1);
             transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn.github {
+            background-color: rgba(36, 41, 47, 0.9);
+            color: white;
+        }
+
+        .social-btn.github:hover {
+            background-color: #24292f;
+        }
+
+        .social-btn.twitter {
+            background-color: rgba(29, 155, 240, 0.9);
+            color: white;
+        }
+
+        .social-btn.twitter:hover {
+            background-color: #1d9bf0;
         }
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .enter-text {
-                font-size: 28px;
+            .coming-soon {
+                font-size: 48px;
                 letter-spacing: 4px;
-                padding: 20px 40px;
             }
 
             .social-buttons {
@@ -329,348 +130,39 @@
             .social-btn {
                 width: 50px;
                 height: 50px;
-                font-size: 12px;
-            }
-
-            .control-modal {
-                top: 10px;
-                left: 10px;
-                padding: 15px;
-                font-size: 11px;
-            }
-
-            .toggle-controls {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+                font-size: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .enter-text {
-                font-size: 24px;
+            .coming-soon {
+                font-size: 36px;
                 letter-spacing: 2px;
-                padding: 15px 30px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="video-container" id="video-container">
+    <div class="video-container">
         <video id="background-video" autoplay muted loop>
             <source src="https://res.cloudinary.com/dwkkbfefj/video/upload/v1756253394/viddd_lna4em.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 
-    <div class="model-container" id="model-container">
-        <!-- 3D Model will be rendered here -->
-    </div>
-
-    <div class="overlay" id="main-overlay">
-        <button class="matrix-enter" id="enter-button">
-            <div class="enter-text glitch-effect">[ ENTER ]</div>
-        </button>
+    <div class="overlay">
+        <div class="coming-soon">
+            COMING SOON
+        </div>
     </div>
 
     <div class="social-buttons">
-        <a href="https://github.com/yourusername" target="_blank" class="social-btn" title="GitHub">
-            <span>GIT</span>
+        <a href="https://github.com/yourusername" target="_blank" class="social-btn github" title="GitHub">
+            <span>GH</span>
         </a>
-        <a href="https://twitter.com/yourusername" target="_blank" class="social-btn" title="Twitter">
-            <span>TWX</span>
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-btn twitter" title="Twitter">
+            <span>TW</span>
         </a>
     </div>
-
-    <!-- Control Modal - Display Only -->
-    <div class="control-modal" id="control-modal">
-        <h3>🐰 Rabbit Position</h3>
-        
-        <div class="coordinates-display" id="coords-display">
-            Model: (0, -3, 0)<br>
-            Camera: (0, 3, 15)<br>
-            Zoom: 15
-        </div>
-
-        <div class="instructions">
-            🖱️ Drag to move rabbit<br>
-            🔍 Scroll to zoom<br>
-            📋 Copy coords when perfect
-        </div>
-    </div>
-
-    <!-- Toggle Button -->
-    <div class="toggle-controls" id="toggle-controls">📍</div>
-
-    <!-- Three.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-
-    <script>
-        let entered = false;
-        let scene, camera, renderer, model, mixer;
-        let isDragging = false;
-        let previousMousePosition = { x: 0, y: 0 };
-
-        // Initialize Three.js scene
-        function initThreeJS() {
-            // Scene
-            scene = new THREE.Scene();
-            
-            // Camera - zoomed out for wide view
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 3, 15);
-            camera.lookAt(0, 0, 0);
-            
-            // Renderer
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-            renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-            renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.2;
-            
-            // Add renderer to model container
-            const modelContainer = document.getElementById('model-container');
-            modelContainer.appendChild(renderer.domElement);
-            
-            // Add mouse event listeners to the canvas
-            setupMouseControls(renderer.domElement);
-            
-            // Lighting setup
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(10, 10, 5);
-            directionalLight.castShadow = true;
-            directionalLight.shadow.mapSize.width = 2048;
-            directionalLight.shadow.mapSize.height = 2048;
-            scene.add(directionalLight);
-
-            // Add matrix-green rim lighting
-            const rimLight = new THREE.DirectionalLight(0x00ff41, 0.3);
-            rimLight.position.set(-5, 5, -5);
-            scene.add(rimLight);
-            
-            // Load GLTF model
-            const loader = new THREE.GLTFLoader();
-            loader.load(
-                'https://raw.githubusercontent.com/bartoai/life/main/rabbit_1_walk.glb',
-                function(gltf) {
-                    model = gltf.scene;
-                    
-                    // Initial scale and position - made much smaller
-                    model.scale.set(0.5, 0.5, 0.5);
-                    model.position.set(0, -3, 0);
-                    
-                    // Enable shadows
-                    model.traverse(function(child) {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                        }
-                    });
-                    
-                    scene.add(model);
-                    
-                    // Setup animations
-                    if (gltf.animations && gltf.animations.length > 0) {
-                        mixer = new THREE.AnimationMixer(model);
-                        const action = mixer.clipAction(gltf.animations[0]);
-                        action.play();
-                    }
-                    
-                    // Show controls after model loads
-                    setTimeout(() => {
-                        document.getElementById('toggle-controls').classList.add('show');
-                        updateCoordinatesDisplay();
-                    }, 1000);
-                    
-                    // Start render loop
-                    animate();
-                },
-                function(progress) {
-                    console.log('Loading progress:', (progress.loaded / progress.total * 100) + '%');
-                },
-                function(error) {
-                    console.error('Error loading model:', error);
-                }
-            );
-            
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                if (mixer) {
-                    mixer.update(0.016); // ~60fps
-                }
-                
-                // Gentle rotation (optional - remove if you don't want auto-rotation)
-                if (model && !isDragging) {
-                    model.rotation.y += 0.002;
-                }
-                
-                renderer.render(scene, camera);
-            }
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        // Mouse controls for dragging and zooming
-        function setupMouseControls(canvas) {
-            let isMouseDown = false;
-            
-            // Mouse drag to move rabbit
-            canvas.addEventListener('mousedown', (event) => {
-                if (!model) return;
-                isMouseDown = true;
-                isDragging = false; // Reset dragging state
-                previousMousePosition.x = event.clientX;
-                previousMousePosition.y = event.clientY;
-                canvas.style.cursor = 'grabbing';
-                event.preventDefault();
-            });
-
-            canvas.addEventListener('mousemove', (event) => {
-                if (!isMouseDown || !model) return;
-
-                isDragging = true; // Set dragging state
-                
-                const deltaMove = {
-                    x: event.clientX - previousMousePosition.x,
-                    y: event.clientY - previousMousePosition.y
-                };
-
-                // Move rabbit based on mouse movement (increased sensitivity)
-                const sensitivity = 0.02;
-                model.position.x += deltaMove.x * sensitivity;
-                model.position.y -= deltaMove.y * sensitivity; // Invert Y for natural movement
-
-                previousMousePosition.x = event.clientX;
-                previousMousePosition.y = event.clientY;
-
-                updateCoordinatesDisplay();
-                event.preventDefault();
-            });
-
-            // Handle mouse up on canvas
-            canvas.addEventListener('mouseup', (event) => {
-                isMouseDown = false;
-                setTimeout(() => { isDragging = false; }, 100); // Small delay to prevent auto-rotation immediately
-                canvas.style.cursor = 'grab';
-                event.preventDefault();
-            });
-
-            // Handle mouse leaving canvas
-            canvas.addEventListener('mouseleave', () => {
-                isMouseDown = false;
-                setTimeout(() => { isDragging = false; }, 100);
-                canvas.style.cursor = 'grab';
-            });
-
-            // Also handle global mouse up (in case mouse goes outside canvas while dragging)
-            document.addEventListener('mouseup', () => {
-                if (isMouseDown) {
-                    isMouseDown = false;
-                    setTimeout(() => { isDragging = false; }, 100);
-                    canvas.style.cursor = 'grab';
-                }
-            });
-
-            // Set initial cursor
-            canvas.style.cursor = 'grab';
-
-            // Scroll to zoom (with better event handling)
-            canvas.addEventListener('wheel', (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                if (!camera) return;
-
-                const zoomSpeed = 1.0;
-                const delta = event.deltaY > 0 ? zoomSpeed : -zoomSpeed;
-                
-                camera.position.z += delta;
-                
-                // Limit zoom range
-                camera.position.z = Math.max(3, Math.min(50, camera.position.z));
-                
-                updateCoordinatesDisplay();
-            }, { passive: false });
-        }
-
-        // Update coordinates display
-        function updateCoordinatesDisplay() {
-            if (!model || !camera) return;
-            
-            const display = document.getElementById('coords-display');
-            display.innerHTML = `
-                Model: (${model.position.x.toFixed(1)}, ${model.position.y.toFixed(1)}, ${model.position.z.toFixed(1)})<br>
-                Camera: (${camera.position.x.toFixed(1)}, ${camera.position.y.toFixed(1)}, ${camera.position.z.toFixed(1)})<br>
-                Zoom: ${camera.position.z.toFixed(1)}
-            `;
-        }
-
-        // Enter button functionality
-        document.getElementById('enter-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            if (!entered) {
-                entered = true;
-                
-                // Start transitions
-                document.getElementById('video-container').classList.add('fade-out');
-                document.getElementById('main-overlay').classList.add('fade-out');
-                
-                // Initialize 3D scene immediately
-                initThreeJS();
-                
-                // Fade in model container after delay
-                setTimeout(() => {
-                    document.getElementById('model-container').classList.add('fade-in');
-                }, 1000);
-            }
-        });
-
-        // Control modal toggle
-        let controlsVisible = false;
-        document.getElementById('toggle-controls').addEventListener('click', function() {
-            controlsVisible = !controlsVisible;
-            const modal = document.getElementById('control-modal');
-            
-            if (controlsVisible) {
-                modal.classList.add('show');
-            } else {
-                modal.classList.remove('show');
-            }
-        });
-
-        // Prevent clicks on control elements from interfering
-        document.addEventListener('click', function(e) {
-            // Allow all interactions with the canvas
-            if (e.target.tagName === 'CANVAS') {
-                return;
-            }
-            
-            // Allow interactions with control elements
-            if (e.target.closest('.social-btn') || 
-                e.target.closest('#enter-button') || 
-                e.target.closest('.control-modal') || 
-                e.target.closest('#toggle-controls')) {
-                return;
-            }
-            
-            // Don't prevent other interactions
-        });
-    </script>
 </body>
 </html>
