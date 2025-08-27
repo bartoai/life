@@ -250,17 +250,19 @@
         }
 
         .zap-avatar {
-            width: 30px;
-            height: 30px;
-            background: #00ff41;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: #000;
-            font-weight: bold;
-        }
+    width: 30px;
+    height: 30px;
+    background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68ae61c5c33a0ea08b518807_New%20Project%20-%202025-08-27T023902.730.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
 
         .close-btn {
             background: none;
@@ -562,7 +564,7 @@
         <div class="chat-container">
             <div class="chat-header">
                 <div class="chat-title">
-                    <div class="zap-avatar">⚡</div>
+                    <div class="zap-avatar"></div>
                     <span id="chat-title-text">Dream Analysis</span>
                 </div>
                 <button class="close-btn" id="close-chat">ESC</button>
@@ -1026,7 +1028,7 @@ function showZapThinking(element) {
                 
                 <div class="zap-response">
                     <div class="response-header">
-                        <div class="zap-avatar">⚡</div>
+                        <div class="zap-avatar"></div>
                         <span>Zap's Analysis</span>
                     </div>
                     <div class="response-text">${dreamData.zapResponse}</div>
@@ -1100,7 +1102,7 @@ const previewHeader = document.createElement('div');
 previewHeader.className = 'response-header';
 previewHeader.innerHTML = `
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        <div class="zap-avatar">⚡</div>
+        <div class="zap-avatar"></div>
         <span>Zap's Analysis</span>
     </div>
 `;
