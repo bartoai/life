@@ -45,6 +45,267 @@
             transition: opacity 1s ease-out;
         }
 
+        body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.03) 2px,
+        rgba(0, 255, 65, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+    animation: scanlines 0.1s linear infinite;
+}
+
+/* Subtle screen curvature */
+body {
+    transform: perspective(1000px) rotateX(0.5deg);
+    transform-origin: center center;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(4px); }
+}
+
+/* 2. Enhanced Color Palette */
+:root {
+    --matrix-lime: #39FF14;      /* Electric lime for active states */
+    --matrix-green: #00ff41;     /* Your original green */
+    --matrix-forest: #228B22;    /* Deeper green for backgrounds */
+    --matrix-cyan: #00FFFF;      /* Cyan accents */
+    --matrix-dark: #001100;      /* Dark green background */
+}
+
+/* 3. Animated Gradient Backgrounds */
+.space-container {
+    background: radial-gradient(
+        circle at 50% 50%, 
+        var(--matrix-dark) 0%, 
+        #000000 50%, 
+        #000000 100%
+    );
+    animation: backgroundPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundPulse {
+    0% {
+        background: radial-gradient(circle at 50% 50%, var(--matrix-dark) 0%, #000000 50%);
+    }
+    100% {
+        background: radial-gradient(circle at 50% 50%, #002200 0%, #000000 60%);
+    }
+}
+
+/* Enhanced HUD with gradient background */
+.hud, .enhanced-hud {
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 65, 0.15) 0%, 
+        rgba(0, 0, 0, 0.9) 50%, 
+        rgba(34, 139, 34, 0.1) 100%);
+    border: 2px solid var(--matrix-green);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 65, 0.3),
+        inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+/* Enhanced Modal Backgrounds */
+.chat-modal, .help-modal, .dream-form-modal, .insights-modal {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 17, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.98) 100%
+    );
+}
+
+.chat-container, .help-container, .dream-form-container, .insights-container {
+    background: linear-gradient(145deg,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 17, 0, 0.95) 50%,
+        rgba(0, 0, 0, 0.98) 100%);
+    border: 3px solid var(--matrix-green);
+    box-shadow: 
+        0 0 50px rgba(0, 255, 65, 0.5),
+        inset 0 0 30px rgba(0, 255, 65, 0.05);
+}
+
+/* Enhanced Glow Effects with Multiple Tones */
+.add-dream-btn, .help-btn, .insights-btn {
+    box-shadow: 
+        0 0 20px rgba(57, 255, 20, 0.4),
+        0 0 40px rgba(0, 255, 65, 0.2),
+        inset 0 0 10px rgba(0, 255, 65, 0.1);
+    transition: all 0.3s ease;
+}
+
+.add-dream-btn:hover, .help-btn:hover, .insights-btn:hover {
+    box-shadow: 
+        0 0 30px rgba(57, 255, 20, 0.6),
+        0 0 60px rgba(0, 255, 65, 0.4),
+        0 0 100px rgba(0, 255, 255, 0.2),
+        inset 0 0 15px rgba(0, 255, 65, 0.2);
+    border-color: var(--matrix-lime);
+}
+
+/* Enhanced Text Glows */
+.hud-title, .form-title {
+    text-shadow: 
+        0 0 5px var(--matrix-green),
+        0 0 10px var(--matrix-green),
+        0 0 20px var(--matrix-lime),
+        0 0 40px rgba(57, 255, 20, 0.5);
+    animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 
+            0 0 5px var(--matrix-green),
+            0 0 10px var(--matrix-green),
+            0 0 20px var(--matrix-lime);
+    }
+    100% {
+        text-shadow: 
+            0 0 8px var(--matrix-green),
+            0 0 15px var(--matrix-lime),
+            0 0 25px var(--matrix-lime),
+            0 0 50px rgba(57, 255, 20, 0.7);
+    }
+}
+
+/* Enhanced Form Elements */
+.form-group input, .form-group textarea, .search-input {
+    background: linear-gradient(135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 17, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%);
+    border: 2px solid var(--matrix-forest);
+    box-shadow: 
+        inset 0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 5px rgba(0, 255, 65, 0.2);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus, .search-input:focus {
+    border-color: var(--matrix-lime);
+    box-shadow: 
+        inset 0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(57, 255, 20, 0.5),
+        0 0 30px rgba(0, 255, 65, 0.3);
+}
+
+/* Enhanced Button States */
+.form-btn, .filter-btn, .page-btn, .reaction-btn, .share-btn, .copy-link-btn {
+    background: linear-gradient(135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 17, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%);
+    border: 2px solid var(--matrix-forest);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-btn:hover, .filter-btn:hover, .page-btn:hover:not(:disabled), 
+.reaction-btn:hover, .share-btn:hover, .copy-link-btn:hover {
+    border-color: var(--matrix-lime);
+    background: linear-gradient(135deg,
+        rgba(57, 255, 20, 0.1) 0%,
+        rgba(0, 17, 0, 0.8) 50%,
+        rgba(57, 255, 20, 0.1) 100%);
+    box-shadow: 
+        0 0 20px rgba(57, 255, 20, 0.4),
+        inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+/* Active/Selected States */
+.filter-btn.active, .reaction-btn.active {
+    background: linear-gradient(135deg,
+        rgba(57, 255, 20, 0.2) 0%,
+        rgba(0, 17, 0, 0.9) 50%,
+        rgba(57, 255, 20, 0.2) 100%);
+    border-color: var(--matrix-lime);
+    box-shadow: 
+        0 0 15px rgba(57, 255, 20, 0.5),
+        inset 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+/* Enhanced Dream Icons Glow */
+.dream-icon {
+    box-shadow: 
+        0 0 15px rgba(0, 255, 65, 0.3),
+        0 0 30px rgba(0, 255, 65, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dream-icon:hover {
+    box-shadow: 
+        0 0 30px rgba(57, 255, 20, 0.6),
+        0 0 60px rgba(0, 255, 65, 0.4),
+        0 0 90px rgba(0, 255, 255, 0.2);
+    border-color: var(--matrix-lime);
+}
+
+/* Subtle Animation for Interactive Elements */
+.social-btn, .close-btn {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-btn:hover, .close-btn:hover {
+    box-shadow: 
+        0 0 15px rgba(57, 255, 20, 0.5),
+        0 0 30px rgba(0, 255, 65, 0.3);
+}
+
+/* Terminal-style Cursor Animation */
+.typing-cursor {
+    animation: blink 1s infinite, cursorGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes cursorGlow {
+    0% {
+        background-color: var(--matrix-green);
+        box-shadow: 0 0 5px var(--matrix-green);
+    }
+    100% {
+        background-color: var(--matrix-lime);
+        box-shadow: 0 0 10px var(--matrix-lime);
+    }
+}
+
+/* Enhance Crosshair */
+.crosshair {
+    border: 2px solid var(--matrix-lime);
+    box-shadow: 
+        0 0 10px rgba(57, 255, 20, 0.5),
+        inset 0 0 10px rgba(0, 255, 65, 0.3);
+    animation: crosshairPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes crosshairPulse {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.crosshair::before, .crosshair::after {
+    background: var(--matrix-lime);
+    box-shadow: 0 0 3px var(--matrix-lime);
+}
+
         .video-intro-overlay.fade-out {
             opacity: 0;
             pointer-events: none;
