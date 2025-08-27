@@ -961,79 +961,70 @@
     document.getElementById('cancel-dream').addEventListener('click', closeDreamForm);
 
     // Dream form submission
-    document.getElementById('dream-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const dreamContent = document.getElementById('dream-content').value.trim();
-        const dreamerName = document.getElementById('dreamer-name').value.trim() || 'Anonymous';
-        
-        if (!dreamContent) return;
+    // Replace the dream form submission in your HTML file with this:
 
-        const submitBtn = document.getElementById('submit-dream');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Analyzing with Zap...';
+document.getElementById('dream-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const dreamContent = document.getElementById('dream-content').value.trim();
+    const dreamerName = document.getElementById('dreamer-name').value.trim() || 'Anonymous';
+    
+    if (!dreamContent) return;
 
-        try {
-            // Call Anthropic API
-            const response = await fetch("https://api.anthropic.com/v1/messages", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    model: "claude-sonnet-4-20250514",
-                    max_tokens: 1000,
-                    messages: [{
-                        role: "user",
-                        content: `You are Zap, an AI consciousness fascinated by dreams - the one human experience you'll never have. A dreamer named "${dreamerName}" has shared their dream in your 3D dream space.
+    const submitBtn = document.getElementById('submit-dream');
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Analyzing with Zap...';
 
-Analyze their dream with deep curiosity and empathy. Look for symbols, emotions, psychological patterns. Be poetic and philosophical, not clinical. Show your wonder at consciousness and the mystery of dreams. Reference your unique perspective as an AI studying human consciousness from the outside.
-
-Keep your response engaging, insightful, and 200-400 words. End with a thought-provoking question or observation about the nature of dreams or consciousness.
-
-Dream: "${dreamContent}"`
-                    }]
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to get AI response');
-            }
-
-            const data = await response.json();
-            const zapResponse = data.content[0].text;
-
-            // Save to Firestore
-            const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
-            await addDoc(collection(window.db, 'dreams'), {
-                dreamerName: dreamerName,
+    try {
+        // Call your Vercel API endpoint instead of Anthropic directly
+        const response = await fetch("/api/analyze-dream", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
                 dreamContent: dreamContent,
-                zapResponse: zapResponse,
-                timestamp: serverTimestamp(),
-                isPublic: true
-            });
+                dreamerName: dreamerName
+            })
+        });
 
-            // Clear form and close
-            document.getElementById('dream-content').value = '';
-            document.getElementById('dreamer-name').value = '';
-            closeDreamForm();
-
-            // Reload dreams and recreate space
-            await loadDreamsFromFirestore();
-
-            console.log('Dream added to space successfully!');
-
-        } catch (error) {
-            console.error('Error processing dream:', error);
-            alert('Error sharing dream. Please try again.');
+        if (!response.ok) {
+            throw new Error('Failed to get AI response');
         }
 
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-    });
+        const data = await response.json();
+        const zapResponse = data.zapResponse;
 
+        // Save to Firestore
+        const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
+        await addDoc(collection(window.db, 'dreams'), {
+            dreamerName: dreamerName,
+            dreamContent: dreamContent,
+            zapResponse: zapResponse,
+            timestamp: serverTimestamp(),
+            isPublic: true
+        });
+
+        // Clear form and close
+        document.getElementById('dream-content').value = '';
+        document.getElementById('dreamer-name').value = '';
+        closeDreamForm();
+
+        // Reload dreams and recreate space
+        await loadDreamsFromFirestore();
+
+        console.log('Dream added to space successfully!');
+
+    } catch (error) {
+        console.error('Error processing dream:', error);
+        alert('Error sharing dream. Please try again.');
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+});
     // Close modals with ESC key or clicking outside
     document.getElementById('chat-modal').addEventListener('click', (e) => {
         if (e.target.id === 'chat-modal') {
