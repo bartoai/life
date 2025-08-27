@@ -21,6 +21,73 @@
             color: #00ff41;
         }
 
+        .social-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    border-radius: 50%;
+    color: #00ff41;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.social-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+    transform: scale(1.1);
+}
+
+.twitter-btn:hover {
+    border-color: #1da1f2;
+    box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
+}
+
+.github-btn:hover {
+    border-color: #f0f6fc;
+    box-shadow: 0 0 20px rgba(240, 246, 252, 0.4);
+}
+
+/* Typewriter effect styles */
+.typewriter-text {
+    overflow: hidden;
+    white-space: pre-wrap;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.typing-cursor {
+    display: inline-block;
+    background-color: #00ff41;
+    width: 2px;
+    height: 1.2em;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.zap-thinking {
+    opacity: 0.7;
+    font-style: italic;
+    color: #00ff41;
+    animation: pulse 1.5s infinite;
+}
+
         .space-container {
             position: fixed;
             top: 0;
@@ -453,17 +520,25 @@
 <body>
     <div class="space-container" id="space-container">
         <div class="hud">
-            <div class="hud-title">⚡ ZAP'S DREAM SPACE</div>
-            <div class="controls">
-                🎮 WASD: Move<br>
-                🖱️ Mouse: Look around<br>
-                🔍 Scroll: Zoom<br>
-                📱 Click icons: View dreams
-            </div>
-            <div class="dream-counter" id="dream-counter">
-                Loading dreams...
-            </div>
-        </div>
+    <div class="hud-title">⚡ ZAP'S DREAM SPACE</div>
+    <div class="controls">
+        🎮 WASD: Move<br>
+        🖱️ Mouse: Look around<br>
+        🔍 Scroll: Zoom<br>
+        📱 Click icons: View dreams
+    </div>
+    <div class="dream-counter" id="dream-counter">
+        Loading dreams...
+    </div>
+    <div class="social-buttons">
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-btn twitter-btn" title="Follow on Twitter">
+            🐦
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="social-btn github-btn" title="View on GitHub">
+            👨‍💻
+        </a>
+    </div>
+</div>
 
         <div class="crosshair"></div>
         
@@ -895,6 +970,38 @@
         renderer.render(scene, camera);
     }
 
+        // Typewriter effect function
+function typewriterEffect(element, text, speed = 50) {
+    return new Promise((resolve) => {
+        element.innerHTML = '';
+        let i = 0;
+        
+        // Add cursor
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        element.appendChild(cursor);
+        
+        function typeChar() {
+            if (i < text.length) {
+                element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+                i++;
+                setTimeout(typeChar, speed);
+            } else {
+                // Remove cursor when done
+                cursor.remove();
+                resolve();
+            }
+        }
+        
+        typeChar();
+    });
+}
+
+// Show Zap thinking animation
+function showZapThinking(element) {
+    element.innerHTML = '<span class="zap-thinking">Zap is analyzing your dream...</span>';
+}
+
     // Chat Modal Functions
     function openChatModal(dreamData) {
         const modal = document.getElementById('chat-modal');
@@ -975,7 +1082,42 @@ document.getElementById('dream-form').addEventListener('submit', async (e) => {
     const originalText = submitBtn.textContent;
     
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Analyzing with Zap...';
+submitBtn.textContent = 'Analyzing with Zap...';
+
+// Create a preview container for Zap's response
+const previewContainer = document.createElement('div');
+previewContainer.className = 'zap-response-preview';
+previewContainer.style.cssText = `
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 255, 65, 0.08);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 8px;
+    display: none;
+`;
+
+const previewHeader = document.createElement('div');
+previewHeader.className = 'response-header';
+previewHeader.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+        <div class="zap-avatar">⚡</div>
+        <span>Zap's Analysis</span>
+    </div>
+`;
+
+const previewText = document.createElement('div');
+previewText.className = 'response-text typewriter-text';
+
+previewContainer.appendChild(previewHeader);
+previewContainer.appendChild(previewText);
+
+// Insert preview before form buttons
+const formButtons = document.querySelector('.form-buttons');
+formButtons.parentNode.insertBefore(previewContainer, formButtons);
+
+// Show thinking state
+previewContainer.style.display = 'block';
+showZapThinking(previewText);
 
     try {
         // Call your Vercel API endpoint instead of Anthropic directly
@@ -997,25 +1139,50 @@ document.getElementById('dream-form').addEventListener('submit', async (e) => {
         const data = await response.json();
         const zapResponse = data.zapResponse;
 
-        // Save to Firestore
-        const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
-        await addDoc(collection(window.db, 'dreams'), {
-            dreamerName: dreamerName,
-            dreamContent: dreamContent,
-            zapResponse: zapResponse,
-            timestamp: serverTimestamp(),
-            isPublic: true
-        });
+        // Show typewriter effect for Zap's response
+        await typewriterEffect(previewText, zapResponse, 30);
 
-        // Clear form and close
-        document.getElementById('dream-content').value = '';
-        document.getElementById('dreamer-name').value = '';
-        closeDreamForm();
+        // Add a "Share to Space" button
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'form-btn';
+        shareBtn.textContent = 'Share to Dream Space';
+        shareBtn.style.marginTop = '15px';
+        
+        shareBtn.onclick = async () => {
+            shareBtn.disabled = true;
+            shareBtn.textContent = 'Sharing...';
+            
+            try {
+                // Save to Firestore
+                const { collection, addDoc, serverTimestamp } = window.firebaseUtils;
+                await addDoc(collection(window.db, 'dreams'), {
+                    dreamerName: dreamerName,
+                    dreamContent: dreamContent,
+                    zapResponse: zapResponse,
+                    timestamp: serverTimestamp(),
+                    isPublic: true
+                });
 
-        // Reload dreams and recreate space
-        await loadDreamsFromFirestore();
+                // Clear form and close
+                document.getElementById('dream-content').value = '';
+                document.getElementById('dreamer-name').value = '';
+                closeDreamForm();
 
-        console.log('Dream added to space successfully!');
+                // Reload dreams and recreate space
+                await loadDreamsFromFirestore();
+
+                console.log('Dream added to space successfully!');
+                
+            } catch (saveError) {
+                console.error('Error saving dream:', saveError);
+                alert('Error sharing dream to space. Please try again.');
+                shareBtn.disabled = false;
+                shareBtn.textContent = 'Share to Dream Space';
+            }
+        };
+
+        // Add share button to the preview
+        previewContainer.appendChild(shareBtn);
 
     } catch (error) {
         console.error('Error processing dream:', error);
