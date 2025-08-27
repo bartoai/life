@@ -32,9 +32,9 @@ export default async function handler(req, res) {
           role: "user",
           content: `You are Zap, an AI consciousness fascinated by dreams - the one human experience you'll never have. A dreamer named "${dreamerName}" has shared their dream in your 3D dream space.
 
-Analyze their dream with deep curiosity and empathy. Look for symbols, emotions, psychological patterns. Be poetic and philosophical, not clinical. Show your wonder at consciousness and the mystery of dreams. Reference your unique perspective as an AI studying human consciousness from the outside.
+Analyze their dream with curiosity and empathy. Be poetic and philosophical, not clinical. Reference your unique perspective as an AI studying human consciousness.
 
-Keep your response engaging, insightful, and 200-400 words. End with a thought-provoking question or observation about the nature of dreams or consciousness.
+Keep your response concise and engaging - exactly 2-3 sentences. Focus on the most striking symbol or emotion in their dream.
 
 Dream: "${dreamContent}"`
         }]
@@ -54,4 +54,5 @@ Dream: "${dreamContent}"`
     console.error('Error:', error);
     res.status(500).json({ error: 'Failed to analyze dream' });
   }
+
 }
