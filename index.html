@@ -1049,10 +1049,18 @@ document.getElementById('dream-form').addEventListener('submit', async (e) => {
 
     // Prevent default scrolling and arrow key behavior
     window.addEventListener('keydown', (e) => {
-        if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1) {
-            e.preventDefault();
-        }
-    }, false);
+    // Check if user is currently typing in an input field
+    const isTyping = document.activeElement && (
+        document.activeElement.tagName === 'INPUT' || 
+        document.activeElement.tagName === 'TEXTAREA' ||
+        document.activeElement.contentEditable === 'true'
+    );
+    
+    // Only prevent default if NOT typing in a form field
+    if (!isTyping && ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
     // Mobile touch controls (basic implementation)
     let touchStartX = 0, touchStartY = 0;
