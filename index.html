@@ -28,6 +28,66 @@
     justify-content: center;
 }
 
+        /* Video Intro Overlay */
+.video-intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.video-intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 1s ease-out;
+}
+
+.video-fade-overlay.fade-in {
+    background: rgba(0, 0, 0, 1);
+}
+
+/* Hide main content initially */
+.space-container.intro-playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.space-container {
+    transition: opacity 1s ease-in;
+}
+
+/* Mobile video adjustments */
+@media (max-width: 768px) {
+    .intro-video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
 .social-btn {
     display: flex;
     align-items: center;
@@ -776,6 +836,20 @@
     </style>
 </head>
 <body>
+    <!-- Video Intro Overlay -->
+<div class="video-intro-overlay" id="video-intro-overlay">
+    <video 
+        class="intro-video" 
+        id="intro-video" 
+        autoplay 
+        muted 
+        playsinline
+        preload="auto"
+    >
+        <source src="https://res.cloudinary.com/dwkkbfefj/video/upload/v1756253394/viddd_lna4em.mp4" type="video/mp4">
+    </video>
+    <div class="video-fade-overlay" id="video-fade-overlay"></div>
+</div>
     <div class="space-container" id="space-container">
         <div class="hud">
     <div class="hud-title">ZAP'S DREAM SPACE</div>
@@ -976,10 +1050,8 @@
 
         // Initialize the 3D space when Firebase is ready
         setTimeout(() => {
-            if (window.initDreamSpace) {
-                window.initDreamSpace();
-            }
-        }, 500);
+    initVideoIntro();
+}, 500);
     </script>
 
     <script>
@@ -1353,6 +1425,59 @@ function typewriterEffect(element, text, speed = 50) {
 // Show Zap thinking animation
 function showZapThinking(element) {
     element.innerHTML = '<span class="zap-thinking">Zap is analyzing your dream...</span>';
+}
+
+        // Video Intro Logic
+function initVideoIntro() {
+    const videoOverlay = document.getElementById('video-intro-overlay');
+    const video = document.getElementById('intro-video');
+    const fadeOverlay = document.getElementById('video-fade-overlay');
+    const spaceContainer = document.getElementById('space-container');
+    
+    // Add intro-playing class to hide main content
+    spaceContainer.classList.add('intro-playing');
+    
+    // Set up video end handling
+    let introComplete = false;
+    
+    function completeIntro() {
+        if (introComplete) return;
+        introComplete = true;
+        
+        // Start fade out sequence
+        fadeOverlay.classList.add('fade-in');
+        
+        setTimeout(() => {
+            videoOverlay.classList.add('fade-out');
+            spaceContainer.classList.remove('intro-playing');
+            
+            // Initialize dream space after fade
+            if (window.initDreamSpace) {
+                window.initDreamSpace();
+            }
+            
+            // Remove video overlay completely after transition
+            setTimeout(() => {
+                videoOverlay.remove();
+            }, 1000);
+        }, 500);
+    }
+    
+    // Auto-complete after 4 seconds (fallback)
+    setTimeout(completeIntro, 4000);
+    
+    // Complete when video ends naturally
+    video.addEventListener('ended', completeIntro);
+    
+    // Handle video loading errors
+    video.addEventListener('error', () => {
+        console.log('Video failed to load, skipping intro');
+        completeIntro();
+    });
+    
+    // Allow click/tap to skip
+    videoOverlay.addEventListener('click', completeIntro);
+    videoOverlay.addEventListener('touchstart', completeIntro);
 }
 
     // Chat Modal Functions
